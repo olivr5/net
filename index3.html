@@ -436,13 +436,47 @@ h1{font-size:138.5%;}h2{font-size:123.1%;}h3{font-size:108%;}h1,h2,h3{margin:1em
     <meta name="generator" content="BlueGriffon wysiwyg editor">
     <style type="text/css"></style>
   </head>
-  <body>
+  <body onload="openFullscreen();">
+
+/*fullscreen script
+    
+    <button onclick="openFullscreen();">Open Fullscreen</button>
+<button onclick="closeFullscreen();">Close Fullscreen</button>
+    
+    */
+    
+<script>
+var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+</script>
+    /*fullscreen script ende
+    
+    
+    */
     <div id="doc3" class="yui-t7">
       <div id="hd">
         <table style="width: 100%; height: 6px;" border="0">
           <tbody>
             <tr>
-              <td style="background-color: #2b2b2b;"><span style="color: #00cccc;">Grafik</span></td>
+              <td style="background-color: #2b2b2b;"><span style="color: #00cccc;">Grafik</span><button onclick="closeFullscreen();">Close Fullscreen</button></td>
               <td>
                 <div class="navbar"> <a href="#home">Kontakt</a> <a href="#news">News</a>
                   <div class="dropdown">
